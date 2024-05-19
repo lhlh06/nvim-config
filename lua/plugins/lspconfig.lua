@@ -22,6 +22,13 @@ return {
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
                 local opts = { buffer = ev.buf, silent = true }
 
+                -- Inlay Hints
+                local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+                if client.server_capabilities.inlayHintProvider then
+                    vim.lsp.inlay_hint.enable(true)
+                end
+
                 -- set keybinds
                 opts.desc = "Show LSP references"
                 keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
@@ -105,11 +112,24 @@ return {
         -- C, CPP, CXX Clangd
         lspconfig.clangd.setup {
             capabilities = capabilities,
+            settings = {
+                inlay_hints = {
+                    enabled = true,
+                }
+            }
         }
 
         -- lua
         lspconfig.lua_ls.setup {
             capabilities = capabilities,
+            settings = {
+                Lua = {
+                    hint = {
+                        enable = true,
+                        setType = true,
+                    },
+                },
+            }
 
         }
     end
