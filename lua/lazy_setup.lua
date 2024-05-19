@@ -1,21 +1,25 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { import = "plugins" },
-  { "ellisonleao/gruvbox.nvim",
+    { import = "plugins" },
+    -- theme
+    {
+        "ellisonleao/gruvbox.nvim",
         priority = 1000,
         config = true,
         opts = ...
-  },
+    },
+    -- TODO: Maybe add Illuminate which is a plugin to automatically highlight
+    -- variable or sth under the curesor with the references.
 })
