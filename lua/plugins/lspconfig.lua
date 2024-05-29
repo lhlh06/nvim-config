@@ -131,5 +131,10 @@ return {
             }
 
         }
+
+        -- toml
+        lspconfig.taplo.setup {
+            capabilities = capabilities,
+        }
     end
 }

@@ -22,6 +22,7 @@ return {
                 c = { "clangformat" },
                 cpp = { "clangformat" },
                 rust = { "rustfmt" },
+                toml = { "taplofmt" },
                 -- python = { "isort", "black" },
             },
             format_on_save = {
@@ -31,7 +32,7 @@ return {
             },
         })
 
-        vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+        vim.keymap.set({ "n", "v" }, "<leader>fm", function()
             conform.format({
                 lsp_fallback = true,
                 async = false,
