@@ -14,7 +14,7 @@ return {
                 for e, n in pairs(diagnostics_dict) do
                     local sym = e == "error" and " "
                         or (e == "warning" and " " or "")
-                    if e == "" then
+                    if sym == "" then
                         s = s
                     else
                         s = s .. sym .. n
