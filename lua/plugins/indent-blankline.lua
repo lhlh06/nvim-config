@@ -3,7 +3,25 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     main = "ibl",
     opts = {
-        indent = { char = '┊' },
+        indent = {
+            char = "│",
+            tab_char = "│",
+        },
+    },
+    exclude = {
+        filetypes = {
+            "help",
+            "alpha",
+            "dashboard",
+            "neo-tree",
+            "Trouble",
+            "trouble",
+            "lazy",
+            "mason",
+            "notify",
+            "toggleterm",
+            "lazyterm",
+        },
     },
     config = function()
         -- local highlight = {

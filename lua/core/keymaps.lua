@@ -19,6 +19,7 @@ keymap.set("n", "<leader>tc", ":tabnew<CR>", { desc = "create a new tab" })
 keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "close the tab" })
 keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = "next tab" })
 keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = "previous tab" })
+keymap.set("n", "<leader>bs", ":BufferLinePick<CR>", { desc = "previous tab" })
 
 
 -- window management
@@ -34,6 +35,7 @@ keymap.set("n", "<leader>op", "<cmd>TagbarJumpPrev<CR>", { desc = "Tagbar Prev" 
 keymap.set("n", "<leader>ox", "<cmd>TagbarClose<CR>", { desc = "Close Tagbar" })
 
 -- buffers
-keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
-keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { desc = "Next Buffer" })
+keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Previous buffer" })
+keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Next Buffer" })
 keymap.set("n", "<leader>bx", "<cmd>bdelete<CR>", { desc = "Close Buffer" })
+keymap.set("n", "<leader>bX", "<cmd>BufferLineCloseOthers<CR>", { desc = "Close other Buffers" })
