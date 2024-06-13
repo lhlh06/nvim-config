@@ -50,12 +50,17 @@ return {
         }
 
         -- configure lualine with modified theme
-        lualine.setup({
+        local config = {
             options = {
                 theme = my_lualine_theme,
             },
             sections = {
+                -- These will be filled later
                 lualine_x = {
+                    function()
+                        -- invoke `progress` here.
+                        return require('lsp-progress').progress()
+                    end,
                     {
                         lazy_status.updates,
                         cond = lazy_status.has_updates,
@@ -66,6 +71,16 @@ return {
                     { "filetype" },
                 },
             },
+        }
+
+
+        lualine.setup(config)
+
+        vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+        vim.api.nvim_create_autocmd("User", {
+            group = "lualine_augroup",
+            pattern = "LspProgressStatusUpdated",
+            callback = require("lualine").refresh,
         })
     end,
 }
