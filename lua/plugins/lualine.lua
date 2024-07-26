@@ -55,7 +55,9 @@ return {
                 theme = my_lualine_theme,
             },
             sections = {
-                -- These will be filled later
+                lualine_c = {
+                    { "filename", file_status = true, path = 1, shorting_target = 100 }
+                },
                 lualine_x = {
                     function()
                         -- invoke `progress` here.
