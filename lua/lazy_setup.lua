@@ -20,6 +20,4 @@ require("lazy").setup({
         config = true,
         opts = ...
     },
-    -- TODO: Maybe add Illuminate which is a plugin to automatically highlight
-    -- variable or sth under the curesor with the references.
 })
