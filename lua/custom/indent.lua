@@ -2,9 +2,9 @@
 ---@param num number it must be number and it can't be 0.
 ---@param scope "global" | "local"
 local function set_indent(num, scope)
-  vim.api.nvim_set_option_value("tabstop", num, { scope })
-  vim.api.nvim_set_option_value("shiftwidth", num, { scope })
-  vim.api.nvim_set_option_value("softtabstop", num, { scope })
+  vim.api.nvim_set_option_value("tabstop", num, { scope = scope })
+  vim.api.nvim_set_option_value("shiftwidth", num, { scope = scope })
+  vim.api.nvim_set_option_value("softtabstop", num, { scope = scope })
 end
 
 ---Change indentation to num in `vim.o`.
