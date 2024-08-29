@@ -136,5 +136,12 @@ return {
         lspconfig.taplo.setup {
             capabilities = capabilities,
         }
+
+        lspconfig.hls.setup {
+            capabilities = capabilities,
+            settings = {
+                filetypes = { "haskell", "lhaskell", "cabal" },
+            }
+        }
     end
 }
