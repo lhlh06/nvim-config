@@ -57,6 +57,7 @@ return {
                 "scss",
                 "tmux",
                 "asm",
+                "haskell",
             },
             incremental_selection = {
                 enable = true,
