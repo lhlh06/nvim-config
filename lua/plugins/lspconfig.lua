@@ -137,11 +137,16 @@ return {
             capabilities = capabilities,
         }
 
-        lspconfig.hls.setup {
+        -- Bash
+        lspconfig.bashls.setup {
             capabilities = capabilities,
-            settings = {
-                filetypes = { "haskell", "lhaskell", "cabal" },
-            }
         }
+
+        -- lspconfig.hls.setup {
+        --     capabilities = capabilities,
+        --     settings = {
+        --         filetypes = { "haskell", "lhaskell", "cabal" },
+        --     }
+        -- }
     end
 }
