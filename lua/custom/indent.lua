@@ -1,4 +1,4 @@
----Change indentation to num in local or global
+---Set indentation to num in local or global
 ---@param num number it must be number and it can't be 0.
 ---@param scope "global" | "local"
 local function set_indent(num, scope)
@@ -7,7 +7,7 @@ local function set_indent(num, scope)
   vim.api.nvim_set_option_value("softtabstop", num, { scope = scope })
 end
 
----Change indentation to num in `vim.o`.
+---Set indentation to num in `vim.o`.
 ---@param bufnr integer
 ---@param num number it must be number and it can't be 0.
 local function set_buf_indent(bufnr, num)
@@ -16,7 +16,7 @@ local function set_buf_indent(bufnr, num)
   vim.api.nvim_set_option_value("softtabstop", num, { buf = bufnr })
 end
 
----Change indent to num
+---Set indent to num
 ---@param n any In this function will convert it to `number`
 ---@param is_global boolean if true, set all buffers indentation
 local function change_indent(n, is_global)
@@ -36,7 +36,7 @@ local function change_indent(n, is_global)
   end
 end
 
-vim.api.nvim_create_user_command("ChangeIndent", function(opts)
+vim.api.nvim_create_user_command("SetIndent", function(opts)
   local args = vim.split(opts.args, " ")
   local num = args[1]
   local is_global = vim.tbl_contains(args, "g") or vim.tbl_contains(args, "global")
