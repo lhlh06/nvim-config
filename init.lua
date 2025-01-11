@@ -2,6 +2,14 @@ require("core")
 require("lazy_setup")
 require("custom")
 
+-- set default `commentstring` for `c` and `cpp`
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp" },
+    callback = function()
+        vim.bo.commentstring = "// %s"
+    end,
+})
+
 -- themes
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
