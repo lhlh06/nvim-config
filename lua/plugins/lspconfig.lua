@@ -108,9 +108,18 @@ return {
         }
 
 
+        local lsp_signature = require("lsp_signature")
         -- C, CPP, CXX Clangd
         lspconfig.clangd.setup {
             capabilities = capabilities,
+            cmd = { "clangd", "--background-index", "--clang-tidy", "--completion-style=detailed" },
+            on_attch = function(client, bufnr)
+                lsp_signature.on_attch({
+                    bind = true,
+                    floating_window = true,
+                    hint_enable = true,
+                }, bufnr)
+            end,
             settings = {
                 inlay_hints = {
                     enabled = true,
