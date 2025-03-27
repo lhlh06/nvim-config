@@ -15,6 +15,8 @@ return {
 
         local keymap = vim.keymap -- for conciseness
 
+        vim.diagnostic.config({ virtual_text = true })
+
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function(ev)
