@@ -88,13 +88,22 @@ return {
         lspconfig.rust_analyzer.setup {
             capabilities = capabilities,
             settings = {
-                ["rust_analyzer"] = {
+                ["rust-analyzer"] = {
                     cargo = {
                         allFeatures = true,
                     },
                     checkOnSave = {
                         allFeatures = true,
                         command = "clippy",
+                        extraArgs = {
+                            "--",
+                            "--no-deps",
+                            "-Wclippy::all",
+                            "-Dclippy::correctness",
+                            "-Dclippy::complexity",
+                            "-Wclippy::perf",
+                            "-Wclippy::pedantic",
+                        },
                     },
                     procMacro = {
                         enable = true,
