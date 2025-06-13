@@ -134,7 +134,11 @@ return {
         -- C, CPP, CXX Clangd
         lspconfig.clangd.setup {
             capabilities = capabilities,
-            cmd = { "clangd", "--background-index", "--clang-tidy", "--completion-style=detailed" },
+            cmd = { "clangd",
+                "--background-index", "--clang-tidy",
+                "--completion-style=detailed",
+                "--experimental-modules-support",
+            },
             on_attch = function(client, bufnr)
                 lsp_signature.on_attch({
                     bind = true,
@@ -179,5 +183,12 @@ return {
         --         filetypes = { "haskell", "lhaskell", "cabal" },
         --     }
         -- }
+
+        -- cmake
+        vim.lsp.config("neocmake", {
+            -- Some config
+            -- If none, just enable it
+        })
+        vim.lsp.enable("neocmake")
     end
 }
