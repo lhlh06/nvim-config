@@ -137,7 +137,7 @@ return {
             cmd = { "clangd",
                 "--background-index", "--clang-tidy",
                 "--completion-style=detailed",
-                "--experimental-modules-support",
+                -- "--experimental-modules-support",
             },
             on_attch = function(client, bufnr)
                 lsp_signature.on_attch({
