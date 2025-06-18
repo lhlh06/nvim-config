@@ -58,6 +58,9 @@ return {
                 opts.desc = "Show line diagnostics"
                 keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
+                opts.desc = "Show workspace diagnostics"
+                keymap.set("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", opts) -- show  diagnostics for workspace
+
                 opts.desc = "Go to previous diagnostic"
                 keymap.set("n", "[d", function()
                     vim.diagnostic.jump({ count = -1, float = true })
@@ -73,6 +76,18 @@ return {
 
                 opts.desc = "Restart LSP"
                 keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+                -- goto next reference with wrap
+                opts.desc = "Goto next reference"
+                keymap.set("n", "]r", function ()
+                    require('illuminate').goto_next_reference(true)
+                end, opts)
+
+                -- goto previous reference with wrap
+                opts.desc = "Goto previous reference"
+                keymap.set("n", "[r", function ()
+                    require('illuminate').goto_prev_reference(true)
+                end, opts)
             end,
         })
 
