@@ -49,5 +49,7 @@ return {
         keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<cr>", { desc = "Find references using telescope" })
         keymap.set("n", "<leader>gi", "<cmd>Telescope lsp_implementations<cr>",
             { desc = "Find implementations using telescope" })
+        keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<cr>",
+            { desc = "Find buffers in telescope" })
     end,
 }
