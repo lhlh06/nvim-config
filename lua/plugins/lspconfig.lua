@@ -79,13 +79,13 @@ return {
 
                 -- goto next reference with wrap
                 opts.desc = "Goto next reference"
-                keymap.set("n", "]r", function ()
+                keymap.set("n", "]r", function()
                     require('illuminate').goto_next_reference(true)
                 end, opts)
 
                 -- goto previous reference with wrap
                 opts.desc = "Goto previous reference"
-                keymap.set("n", "[r", function ()
+                keymap.set("n", "[r", function()
                     require('illuminate').goto_prev_reference(true)
                 end, opts)
             end,
@@ -118,8 +118,8 @@ return {
                     cargo = {
                         allFeatures = true,
                     },
-                    checkOnSave = {
-                        allFeatures = true,
+                    check = {
+                        features = "all",
                         command = "clippy",
                         extraArgs = {
                             "--",
@@ -130,6 +130,11 @@ return {
                             "-Wclippy::perf",
                             "-Wclippy::pedantic",
                         },
+                    },
+                    completion = {
+                        callable = {
+                        snippets = "add_parentheses"
+                        }
                     },
                     procMacro = {
                         enable = true,
@@ -152,6 +157,7 @@ return {
             cmd = { "clangd",
                 "--background-index", "--clang-tidy",
                 "--completion-style=detailed",
+                "--function-arg-placeholders=0",
                 -- "--experimental-modules-support",
             },
             on_attch = function(client, bufnr)
