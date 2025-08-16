@@ -33,6 +33,9 @@ return {
                         ["<C-x>"] = trouble_telescope.open,
                     },
                 },
+                file_ignore_patterns = {
+                    "Cargo.lock",
+                }
             },
         })
 
