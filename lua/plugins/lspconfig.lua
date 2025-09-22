@@ -8,7 +8,7 @@ return {
     },
     config = function()
         -- import lspconfig plugin
-        local lspconfig = require("lspconfig")
+        local lspconfig = vim.lsp.config
 
         -- import cmp-nvim-lsp plugin
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -111,7 +111,7 @@ return {
 
 
         -- Rust
-        lspconfig.rust_analyzer.setup {
+        lspconfig['rust_analyzer'] = {
             capabilities = capabilities,
             settings = {
                 ["rust-analyzer"] = {
@@ -133,7 +133,7 @@ return {
                     },
                     completion = {
                         callable = {
-                        snippets = "add_parentheses"
+                            snippets = "add_parentheses"
                         }
                     },
                     procMacro = {
@@ -148,11 +148,12 @@ return {
                 }
             }
         }
+        vim.lsp.enable('rust_analyzer')
 
 
         local lsp_signature = require("lsp_signature")
         -- C, CPP, CXX Clangd
-        lspconfig.clangd.setup {
+        lspconfig['clangd'] = {
             capabilities = capabilities,
             cmd = { "clangd",
                 "--background-index", "--clang-tidy",
@@ -173,9 +174,10 @@ return {
                 }
             }
         }
+        vim.lsp.enable('clangd')
 
         -- lua
-        lspconfig.lua_ls.setup {
+        lspconfig['lua_ls'] = {
             capabilities = capabilities,
             settings = {
                 Lua = {
@@ -187,18 +189,21 @@ return {
             }
 
         }
+        vim.lsp.enable('lua_ls')
 
         -- toml
-        lspconfig.taplo.setup {
+        lspconfig['taplo'] = {
             capabilities = capabilities,
         }
+        vim.lsp.enable('taplo')
 
         -- Bash
-        lspconfig.bashls.setup {
+        lspconfig['bashls'] = {
             capabilities = capabilities,
         }
+        vim.lsp.enable('lua_ls')
 
-        -- lspconfig.hls.setup {
+        -- lspconfig.hls = {
         --     capabilities = capabilities,
         --     settings = {
         --         filetypes = { "haskell", "lhaskell", "cabal" },
