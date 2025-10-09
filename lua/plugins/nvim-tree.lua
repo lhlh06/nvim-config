@@ -38,7 +38,7 @@ return {
                 },
             },
             filters = {
-                custom = { ".DS_Store", ".git", "*.d", ".o", ".cache", "node_modules" },
+                custom = { ".DS_Store", ".git", ".cache", "node_modules", "*.d$", "*.o$" },
             },
             git = {
                 ignore = false,
