@@ -118,19 +118,19 @@ return {
                     cargo = {
                         allFeatures = true,
                     },
-                    check = {
-                        features = "all",
-                        command = "clippy",
-                        extraArgs = {
-                            "--",
-                            "--no-deps",
-                            "-Wclippy::all",
-                            "-Dclippy::correctness",
-                            "-Dclippy::complexity",
-                            "-Wclippy::perf",
-                            "-Wclippy::pedantic",
-                        },
-                    },
+                    -- check = {
+                    --     features = "all",
+                    --     command = "clippy",
+                    --     extraArgs = {
+                    --         "--",
+                    --         "--no-deps",
+                    --         "-Wclippy::all",
+                    --         "-Dclippy::correctness",
+                    --         "-Dclippy::complexity",
+                    --         "-Wclippy::perf",
+                    --         "-Wclippy::pedantic",
+                    --     },
+                    -- },
                     completion = {
                         callable = {
                             snippets = "add_parentheses"
