@@ -118,9 +118,9 @@ return {
                     cargo = {
                         allFeatures = true,
                     },
-                    -- check = {
+                    check = {
                     --     features = "all",
-                    --     command = "clippy",
+                        command = "clippy",
                     --     extraArgs = {
                     --         "--",
                     --         "--no-deps",
@@ -130,7 +130,7 @@ return {
                     --         "-Wclippy::perf",
                     --         "-Wclippy::pedantic",
                     --     },
-                    -- },
+                    },
                     completion = {
                         callable = {
                             snippets = "add_parentheses"
