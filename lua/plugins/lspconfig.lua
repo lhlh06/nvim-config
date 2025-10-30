@@ -119,17 +119,17 @@ return {
                         allFeatures = true,
                     },
                     check = {
-                    --     features = "all",
+                        --     features = "all",
                         command = "clippy",
-                    --     extraArgs = {
-                    --         "--",
-                    --         "--no-deps",
-                    --         "-Wclippy::all",
-                    --         "-Dclippy::correctness",
-                    --         "-Dclippy::complexity",
-                    --         "-Wclippy::perf",
-                    --         "-Wclippy::pedantic",
-                    --     },
+                        --     extraArgs = {
+                        --         "--",
+                        --         "--no-deps",
+                        --         "-Wclippy::all",
+                        --         "-Dclippy::correctness",
+                        --         "-Dclippy::complexity",
+                        --         "-Wclippy::perf",
+                        --         "-Wclippy::pedantic",
+                        --     },
                     },
                     completion = {
                         callable = {
@@ -203,18 +203,22 @@ return {
         }
         vim.lsp.enable('lua_ls')
 
-        -- lspconfig.hls = {
-        --     capabilities = capabilities,
-        --     settings = {
-        --         filetypes = { "haskell", "lhaskell", "cabal" },
-        --     }
-        -- }
-
         -- cmake
         vim.lsp.config("neocmake", {
             -- Some config
             -- If none, just enable it
         })
         vim.lsp.enable("neocmake")
+
+        -- python
+        -- vim.lsp.config('ruff', {
+        --     init_options = {
+        --         settings = {
+        --             lineLength = 100
+        --         }
+        --     }
+        -- })
+        vim.lsp.enable('ruff')
+        vim.lsp.enable('basedpyright')
     end
 }
