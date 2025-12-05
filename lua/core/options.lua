@@ -19,6 +19,7 @@ opt.breakindent = true
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
+opt.showmode = false
 
 -- cursorline
 opt.cursorline = true
