@@ -136,7 +136,7 @@ return {
 					procMacro = {
 						enable = true,
 					},
-					diagonostics = {
+					diagnostics = {
 						enable = true,
 					},
 					imports = {
@@ -198,7 +198,7 @@ return {
 		lspconfig["bashls"] = {
 			capabilities = capabilities,
 		}
-		vim.lsp.enable("lua_ls")
+		vim.lsp.enable("basls")
 
 		-- cmake
 		vim.lsp.config("neocmake", {
