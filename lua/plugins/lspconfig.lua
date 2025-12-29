@@ -2,16 +2,11 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
 		-- import lspconfig plugin
 		local lspconfig = vim.lsp.config
-
-		-- import cmp-nvim-lsp plugin
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap -- for conciseness
 
@@ -91,8 +86,11 @@ return {
 			end,
 		})
 
-		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		local ok, blink = pcall(require, "blink.cmp")
+		if ok and blink.get_lsp_capabilities then
+			capabilities = blink.get_lsp_capabilities(capabilities)
+		end
 
 		-- local hl = "DiagnosticSign" .. type
 		vim.diagnostic.config({
@@ -161,8 +159,8 @@ return {
 				"--function-arg-placeholders=0",
 				-- "--experimental-modules-support",
 			},
-			on_attch = function(client, bufnr)
-				lsp_signature.on_attch({
+			on_attach = function(client, bufnr)
+				lsp_signature.on_attach({
 					bind = true,
 					floating_window = true,
 					hint_enable = true,
