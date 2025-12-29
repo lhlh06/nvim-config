@@ -29,10 +29,6 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- Tagbar
-keymap.set("n", "<leader>ot", "<cmd>TagbarToggle<CR>", { desc = "Toggle Tagbar" })
-keymap.set("n", "<leader>on", "<cmd>TagbarJumpNext<CR>", { desc = "Tagbar Next" })
-keymap.set("n", "<leader>op", "<cmd>TagbarJumpPrev<CR>", { desc = "Tagbar Prev" })
-keymap.set("n", "<leader>ox", "<cmd>TagbarClose<CR>", { desc = "Close Tagbar" })
 
 -- buffers
 keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Previous buffer" })
