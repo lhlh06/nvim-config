@@ -11,10 +11,9 @@ opt.expandtab = true
 opt.autoindent = true
 
 -- line wrapping
-opt.wrap = true
-opt.linebreak = true
-opt.breakindent = true
--- TODO: opt.showbreak=?
+opt.wrap = false
+-- opt.linebreak = true
+-- opt.breakindent = true
 
 -- search settings
 opt.ignorecase = true
@@ -44,3 +43,7 @@ opt.splitbelow = true
 
 -- opt.iskeyword:append("-")
 opt.swapfile = false
+
+vim.opt.undofile = true
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 400
