@@ -197,8 +197,10 @@ return {
 		-- Bash
 		lspconfig["bashls"] = {
 			capabilities = capabilities,
+			cmd = { "bash-language-server", "start" },
+			filetypes = { "bash", "sh" },
 		}
-		vim.lsp.enable("basls")
+		vim.lsp.enable("bashls")
 
 		-- cmake
 		vim.lsp.config("neocmake", {
