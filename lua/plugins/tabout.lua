@@ -1,4 +1,5 @@
 return {
+    -- TODO: Remove this plugin?
     {
         "abecodes/tabout.nvim",
         lazy = false,
