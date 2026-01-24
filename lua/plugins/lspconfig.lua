@@ -218,7 +218,8 @@ return {
 		--     }
 		-- })
 		vim.lsp.enable("ruff")
-		vim.lsp.enable("basedpyright")
+		vim.lsp.enable("ty")
+		-- vim.lsp.enable("basedpyright")
 
 		vim.lsp.config("jsonls", {
 			capabilities = capabilities,
