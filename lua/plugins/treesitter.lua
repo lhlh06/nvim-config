@@ -13,9 +13,15 @@ return {
         treesitter.setup({ -- enable syntax highlighting
             sync_install = false,
             auto_install = true,
-            ignore_install = {},
+            ignore_install = {
+                "tex",
+                "latex",
+            },
             highlight = {
                 enable = true,
+                disable = {
+                    "tex",
+                },
             },
             -- enable indentation
             indent = { enable = true },
@@ -26,6 +32,7 @@ return {
             -- ensure these language parsers are installed
             ensure_installed = {
                 "json",
+                "jsonc",
                 "javascript",
                 "typescript",
                 "tsx",
@@ -34,7 +41,6 @@ return {
                 "css",
                 "markdown",
                 "markdown_inline",
-                "graphql",
                 "bash",
                 "lua",
                 "vim",
@@ -54,10 +60,10 @@ return {
                 "ini",
                 "make",
                 "python",
-                "scss",
                 "tmux",
                 "asm",
                 "haskell",
+                "svelte",
             },
             incremental_selection = {
                 enable = true,
