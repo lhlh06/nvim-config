@@ -21,6 +21,7 @@ return {
                 enable = true,
                 disable = {
                     "tex",
+                    "latex",
                 },
             },
             -- enable indentation
