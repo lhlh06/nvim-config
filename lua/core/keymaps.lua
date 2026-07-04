@@ -31,7 +31,7 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }
 -- Tagbar
 
 -- buffers
-keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Previous buffer" })
-keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Next Buffer" })
+keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })
 keymap.set("n", "<leader>bx", "<cmd>bdelete<CR>", { desc = "Close Buffer" })
 keymap.set("n", "<leader>bX", "<cmd>BufferLineCloseOthers<CR>", { desc = "Close other Buffers" })
