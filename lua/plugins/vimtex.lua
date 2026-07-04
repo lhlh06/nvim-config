@@ -5,7 +5,16 @@ return {
 	init = function()
 		-- VimTeX configuration goes here, e.g.
 		vim.g.vimtex_view_method = "zathura"
-        -- Disable automatically popup quickfix
-        vim.g.vimtex_quickfix_mode = 0
+		-- Disable automatically popup quickfix
+		vim.g.vimtex_quickfix_mode = 0
+
+		vim.g.vimtex_compiler_latexmk = {
+			option = {
+				"-pdf",
+				"-shell-escape",
+				"-interaction=nonstopmode",
+				"-synctex=1",
+			},
+		}
 	end,
 }
