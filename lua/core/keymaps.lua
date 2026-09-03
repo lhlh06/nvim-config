@@ -11,7 +11,7 @@ map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 keymap.set("n", "gr", vim.lsp.buf.references)
 
-keymap.set("n", "<leader>fm", ":Format<CR>", { desc = "Format the code" })
+keymap.set("n", "<leader>fm", "vim.lsp.buf.format", { desc = "Format the code" })
 
 
 -- Tabs
