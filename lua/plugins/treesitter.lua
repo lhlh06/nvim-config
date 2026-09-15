@@ -34,6 +34,7 @@ return {
 			"vimdoc",
 			"c",
 			"cpp",
+            "cuda",
 			"rust",
 			"toml",
 			"java",
