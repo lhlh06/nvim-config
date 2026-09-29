@@ -57,6 +57,6 @@ return {
 			"<cmd>Telescope lsp_implementations<cr>",
 			{ desc = "Find implementations using telescope" }
 		)
-		keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers in telescope" })
+		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers in telescope" })
 	end,
 }
