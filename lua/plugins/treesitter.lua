@@ -4,7 +4,10 @@ return {
 	branch = "main",
 	build = ":TSUpdate",
 	dependencies = {
-		"windwp/nvim-ts-autotag",
+		{
+			"windwp/nvim-ts-autotag",
+			opts = {},
+		},
 	},
 	init = function()
 		vim.api.nvim_create_autocmd("FileType", {
@@ -34,7 +37,7 @@ return {
 			"vimdoc",
 			"c",
 			"cpp",
-            "cuda",
+			"cuda",
 			"rust",
 			"toml",
 			"java",
