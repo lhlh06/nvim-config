@@ -9,7 +9,7 @@ return {
 		vim.g.vimtex_quickfix_mode = 0
 
 		vim.g.vimtex_compiler_latexmk = {
-			option = {
+			options = {
 				"-pdf",
 				"-shell-escape",
 				"-interaction=nonstopmode",
