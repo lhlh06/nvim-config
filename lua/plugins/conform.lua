@@ -22,7 +22,7 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				rust = { "rustfmt" },
-				toml = { "taplofmt" },
+				toml = { "taplo" },
 				-- python = { "isort", "black" },
 			},
 			-- format_on_save = {
