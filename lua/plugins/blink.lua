@@ -1,8 +1,9 @@
 return {
 	"saghen/blink.cmp",
-	-- optional: provides snippets for the snippet source
+	event = "InsertEnter",
 	dependencies = {
-		"rafamadriz/friendly-snippets",
+		-- Install the fallback Tab mappings before Blink captures them.
+		"abecodes/tabout.nvim",
 		{
 			"L3MON4D3/LuaSnip",
 			version = "v2.*",

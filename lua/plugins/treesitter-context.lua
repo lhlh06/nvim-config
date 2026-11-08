@@ -1,5 +1,6 @@
 return {
-    "nvim-treesitter/nvim-treesitter-context",
-    branch = "master",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
+	"nvim-treesitter/nvim-treesitter-context",
+	event = { "BufReadPost", "BufNewFile" },
+	branch = "master",
+	dependencies = { "nvim-treesitter/nvim-treesitter" },
 }

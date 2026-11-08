@@ -9,8 +9,9 @@ return {
 			opts = {},
 		},
 	},
-	init = function()
+	config = function()
 		vim.api.nvim_create_autocmd("FileType", {
+			group = vim.api.nvim_create_augroup("UserTreesitter", { clear = true }),
 			callback = function()
 				-- Enable treesitter highlighting and disable regex syntax
 				pcall(vim.treesitter.start)
@@ -53,12 +54,14 @@ return {
 			"haskell",
 			"svelte",
 		}
-		local alreadyInstalled = require("nvim-treesitter.config").get_installed()
+		local alreadyInstalled = require("nvim-treesitter").get_installed()
 		local parsersToInstall = vim.iter(ensureInstalled)
 			:filter(function(parser)
 				return not vim.tbl_contains(alreadyInstalled, parser)
 			end)
 			:totable()
-		require("nvim-treesitter").install(parsersToInstall)
+		if #parsersToInstall > 0 then
+			require("nvim-treesitter").install(parsersToInstall)
+		end
 	end,
 }

@@ -1,14 +1,14 @@
 return {
-    "L3MON4D3/LuaSnip",
-    dependencies = { "rafamadriz/friendly-snippets" },
-    version = "v2.*",
-    build = "make install_jsregexp",
-    config = function()
-        require("luasnip").setup { enable_autosnippets = true }
-        require("luasnip.loaders.from_vscode").lazy_load()
-        require("luasnip.loaders.from_lua").load {
-            paths = { "./lua/snippets" }
-        }
-    end
-
+	"L3MON4D3/LuaSnip",
+	lazy = true,
+	dependencies = { "rafamadriz/friendly-snippets" },
+	version = "v2.*",
+	build = "make install_jsregexp",
+	config = function()
+		require("luasnip").setup({ enable_autosnippets = true })
+		require("luasnip.loaders.from_vscode").lazy_load()
+		require("luasnip.loaders.from_lua").load({
+			paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
+		})
+	end,
 }

@@ -1,12 +1,16 @@
 return {
 	"RRethy/vim-illuminate",
+	event = { "BufReadPost", "BufNewFile" },
 	config = function()
+		local function set_highlights()
+			vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#575757" })
+			vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#575757" })
+			vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#575757" })
+		end
+		set_highlights()
 		vim.api.nvim_create_autocmd("ColorScheme", {
-			callback = function()
-				vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#575757" })
-				vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#575757" })
-				vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#575757" })
-			end,
+			group = vim.api.nvim_create_augroup("UserIlluminate", { clear = true }),
+			callback = set_highlights,
 		})
 		require("illuminate").configure({
 			-- providers: provider used to get references in the buffer, ordered by priority

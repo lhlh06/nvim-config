@@ -2,7 +2,8 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		{ "antosha417/nvim-lsp-file-operations", config = true },
+		"saghen/blink.cmp",
+		"ray-x/lsp_signature.nvim",
 	},
 	config = function()
 		-- import lspconfig plugin
@@ -87,10 +88,7 @@ return {
 		})
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		local ok, blink = pcall(require, "blink.cmp")
-		if ok and blink.get_lsp_capabilities then
-			capabilities = blink.get_lsp_capabilities(capabilities)
-		end
+		capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 		-- local hl = "DiagnosticSign" .. type
 		vim.diagnostic.config({
@@ -147,7 +145,6 @@ return {
 		}
 		vim.lsp.enable("rust_analyzer")
 
-		local lsp_signature = require("lsp_signature")
 		-- C, CPP, CXX Clangd
 		lspconfig["clangd"] = {
 			capabilities = capabilities,
@@ -159,13 +156,6 @@ return {
 				"--function-arg-placeholders=0",
 				-- "--experimental-modules-support",
 			},
-			on_attach = function(client, bufnr)
-				lsp_signature.on_attach({
-					bind = true,
-					floating_window = true,
-					hint_enable = true,
-				}, bufnr)
-			end,
 			settings = {
 				inlay_hints = {
 					enabled = true,
