@@ -11,16 +11,12 @@ map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 keymap.set("n", "gr", vim.lsp.buf.references)
 
-keymap.set("n", "<leader>fm", "vim.lsp.buf.format", { desc = "Format the code" })
-
-
 -- Tabs
 keymap.set("n", "<leader>tc", ":tabnew<CR>", { desc = "create a new tab" })
 keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "close the tab" })
 keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = "next tab" })
 keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = "previous tab" })
 keymap.set("n", "<leader>bs", ":BufferLinePick<CR>", { desc = "previous tab" })
-
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
