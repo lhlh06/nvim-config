@@ -16,7 +16,9 @@ return {
 		keymap = {
 			preset = "none",
 			["<Enter>"] = { "select_and_accept", "fallback" },
-			-- ['<Tab>'] = {},
+			["<Tab>"] = { "snippet_forward", "fallback" },
+			["<S-Tab>"] = { "snippet_backward", "fallback" },
+
 			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 			["<C-e>"] = { "hide" },
 			["<C-y>"] = { "select_and_accept" },
@@ -31,7 +33,7 @@ return {
 
 			["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
 		},
-        -- TODO: wait to stable
+		-- TODO: wait to stable
 		-- signature = {
 		-- 	enabled = true,
 		-- 	window = {
